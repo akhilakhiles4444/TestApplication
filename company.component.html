@@ -1,0 +1,26 @@
+
+
+<mat-table [dataSource]="dataSource" matSort>
+  
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </mat-header-cell>
+    <mat-cell *matCellDef="let company"> {{ company.name }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="industry">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Industry </mat-header-cell>
+    <mat-cell *matCellDef="let company"> {{ company.industry }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="location">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
+    <mat-cell *matCellDef="let company"> {{ company.location }} </mat-cell>
+  </ng-container>
+
+  
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
